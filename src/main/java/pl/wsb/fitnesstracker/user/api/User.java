@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import pl.wsb.fitnesstracker.healthmetrics.api.HealthMetrics;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
