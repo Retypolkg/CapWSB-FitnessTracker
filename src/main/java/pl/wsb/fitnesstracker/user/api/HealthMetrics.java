@@ -1,4 +1,4 @@
-package pl.wsb.fitnesstracker.healthmetrics.api;
+package pl.wsb.fitnesstracker.user.api;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import pl.wsb.fitnesstracker.user.api.User;
 
 import java.time.LocalDate;
 
@@ -28,8 +27,8 @@ public class HealthMetrics {
     @Column(name = "height")
     private Double height;
 
-    @Column(name = "hearthRate")
-    private int hearthRate;
+    @Column(name = "heartRate")
+    private int heartRate;
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
