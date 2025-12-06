@@ -6,13 +6,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import pl.wsb.fitnesstracker.userevent.UserEvent;
-import pl.wsb.fitnesstracker.trainings.Trainings;
-import pl.wsb.fitnesstracker.statistics.api.Statistics;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -26,10 +21,10 @@ public class User {
     @Nullable
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column
     private String lastName;
 
     @Column(name = "birthdate", nullable = false)
@@ -38,27 +33,15 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<HealthMetrics> healthMetrics = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Trainings> trainings = new ArrayList<>();
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Statistics statistics;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserEvent> userEvents = new ArrayList<>();
-
     public User(
             final String firstName,
             final String lastName,
             final LocalDate birthdate,
             final String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+
         this.birthdate = birthdate;
         this.email = email;
     }
 
 }
+
